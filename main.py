@@ -27,41 +27,51 @@ def gen_data():
     
     for elem in range(len(role_list)):
         CAST[role_list[elem]] = actor_list[elem]
-        
+
+
+def castToActor(arr):
+    for role in arr:
+        arr[arr.index(role)] = CAST.get(role)
+    return arr
+    
 def gen_scenes():
     for scene in range(NUM_SCENES):
         if(scene==1): 
-            SCENES.append(Scene(scene, ['hana'], DANCES.get('Traditional Tinikling')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'Child #1','Child #2','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' ]), DANCES.get('Traditional Tinikling')))
         elif(scene==2):
-            SCENES.append(Scene(scene, {}, DANCES.get('Binasuan')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'tita baby', 'tito boy', 'althea', 'alejandro', 'lola', 'bendito', 'sampaugita', 'benilde' ]), DANCES.get('Binasuan')))
         elif(scene==3):
-            SCENES.append(Scene(scene, {}, DANCES.get('Co-Ed Modern')))
+            SCENES.append(Scene(scene, castToActor(['hana','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' , 'lola' ]), DANCES.get('Co-Ed Modern')))
         elif(scene==4):
-            SCENES.append(Scene(scene, {}, DANCES.get('Pandanggo')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaugita', 'althea', 'emerlinda', 'bendito', 'agapito']), DANCES.get('Pandanggo Sa Ilaw')))
         elif(scene==5):
-          SCENES.append(Scene(scene, {}, DANCES.get('Magla')))
+          SCENES.append(Scene(scene, castToActor(['hana','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' , 'lola' ]), DANCES.get('Magla')))
         elif(scene==6):
-            SCENES.append(Scene(scene, {}, DANCES.get('Singkil')))
-            SCENES.append(Scene(scene, {}, DANCES.get('COMMERCIALS')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'bendito', 'tita baby', 'andres' ]), DANCES.get('Singkil')))
+            SCENES.append(Scene(scene, [], DANCES.get('COMMERCIALS')))
         elif(scene==7):
-            SCENES.append(Scene(scene, {}, DANCES.get('Couples Modern')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'benilde', 'bendito', 'tita baby', 'tito boy', 'tita althea', 'tito alejandro']), DANCES.get('Couples Modern')))
         elif(scene==8):
-            SCENES.append(Scene(scene, {}, DANCES.get('Bangko')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'benilde', 'emerlinda', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro', 'andres']), DANCES.get('Bangko')))
         elif(scene==9):
-            SCENES.append(Scene(scene, {}, DANCES.get('Boys Modern')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'tito aldo', 'bendito', 'agapito', 'tito boy']), DANCES.get('Boys Modern')))
         elif(scene==10):
-          SCENES.append(Scene(scene, {}, DANCES.get('Pagapir')))
+          SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'tito aldo', 'emerlinda', 'agapito', 'tita baby', 'alejandro']), DANCES.get('Pagapir')))
         elif(scene==11):
-            SCENES.append(Scene(scene, {}, DANCES.get('Girls Modern')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'emerlinda', 'agapito', 'tita baby', 'althea']), DANCES.get('Girls Modern')))
         elif(scene==12):
-            SCENES.append(Scene(scene, {}))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'benilde','emerlinda', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro'])))
         elif(scene==13):
-            SCENES.append(Scene(scene, {}, DANCES.get('Alcamfor')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'tito aldo', 'bendito', 'tita baby', 'tito boy', 'andres']), DANCES.get('Alcamfor')))
         elif(scene==14):
-            SCENES.append(Scene(scene, {}, DANCES.get('Modern Tinikling')))
-
+            SCENES.append(Scene(scene, castToActor(['lola', 'bendito', 'tita baby', 'tito boy']), DANCES.get('Modern Tinikling')))
+        
 if __name__ == "__main__":
     gen_data() 
-    print(DANCES)
-    print(CAST)
+  
+    gen_scenes()
+    #print(DANCES)
+    #print(CAST)
+    for scene in SCENES:
+        print(scene.number, scene.getMembers())
 
