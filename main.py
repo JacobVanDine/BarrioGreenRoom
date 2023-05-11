@@ -23,6 +23,7 @@ def gen_data():
 
     for elem in range(len(dances_arr)):
         DANCES[dances_arr[elem]] = dancer_arr[elem]
+        print(dancer_arr)
     DANCES['COMMERICIALS'] = []
     
     for elem in range(len(role_list)):
@@ -37,15 +38,15 @@ def castToActor(arr):
 def gen_scenes():
     for scene in range(NUM_SCENES+1):
         if(scene==1): 
-            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'Child #1','Child #2','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' ]), DANCES.get('Traditional Tinikling')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'Child #1','Child #2','emerlinda', 'sampaguita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' ]), DANCES.get('Traditional Tinikling')))
         elif(scene==2):
-            SCENES.append(Scene(scene, castToActor(['hana', 'tita baby', 'tito boy', 'althea', 'alejandro', 'lola', 'bendito', 'sampaugita', 'benilde' ]), DANCES.get('Binasuan')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'tita baby', 'tito boy', 'althea', 'alejandro', 'lola', 'bendito', 'sampaguita', 'benilde' ]), DANCES.get('Binasuan')))
         elif(scene==3):
-            SCENES.append(Scene(scene, castToActor(['hana','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' , 'lola' ]), DANCES.get('Co-Ed Modern')))
+            SCENES.append(Scene(scene, castToActor(['hana','emerlinda', 'sampaguita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' , 'lola' ]), DANCES.get('Co-Ed Modern')))
         elif(scene==4):
-            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaugita', 'althea', 'emerlinda', 'bendito', 'agapito']), DANCES.get('Pandanggo Sa Ilaw')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'althea', 'emerlinda', 'bendito', 'agapito']), DANCES.get('Pandanggo Sa Ilaw')))
         elif(scene==5):
-          SCENES.append(Scene(scene, castToActor(['hana','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' , 'lola' ]), DANCES.get('Magla')))
+          SCENES.append(Scene(scene, castToActor(['hana','emerlinda', 'sampaguita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' , 'lola' ]), DANCES.get('Magla')))
         elif(scene==6):
             SCENES.append(Scene(scene, castToActor(['hana', 'bendito', 'tita baby', 'andres' ]), DANCES.get('Singkil')))
             SCENES.append(Scene(scene, [], DANCES.get('COMMERCIALS')))
@@ -72,12 +73,7 @@ def display_all():
         print("ON DECK: SCENE " + str(SCENES[sceneNum+1].number)+ '\n'+  SCENES[sceneNum+1].display() )
     print("FINAL SCENE: SCENE "+ str(SCENES[-1].number)+ '\n'+ SCENES[-1].display() )
 
-
-
-if __name__ == "__main__":
-    gen_data() 
-    gen_scenes()
-    #display_all()
+def barrio():
     cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.")
     scenes_index=0
     while(cmd!='exit'):
@@ -91,6 +87,12 @@ if __name__ == "__main__":
             cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.")
 
 
-            
+
+if __name__ == "__main__":
+    gen_data() 
+    gen_scenes()
+    #display_all()
+    #barrio()
+    
         
 
