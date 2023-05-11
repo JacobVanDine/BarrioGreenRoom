@@ -66,17 +66,31 @@ def gen_scenes():
         elif(scene==14):
             SCENES.append(Scene(scene, castToActor(['lola', 'bendito', 'tita baby', 'tito boy']), DANCES.get('Modern Tinikling')))
 
+def display_all():
+    for sceneNum in range(len(SCENES)-1):
+        print("CURRNET SCENE: SCENE "+ str(SCENES[sceneNum].number)+ '\n'+ SCENES[sceneNum].display() )
+        print("ON DECK: SCENE " + str(SCENES[sceneNum+1].number)+ '\n'+  SCENES[sceneNum+1].display() )
+    print("FINAL SCENE: SCENE "+ str(SCENES[-1].number)+ '\n'+ SCENES[-1].display() )
+
+
+
 if __name__ == "__main__":
     gen_data() 
-  
     gen_scenes()
-    #print(DANCES)
-    #print(CAST)
-    for sceneNum in range(len(SCENES)-1):
-        print("CURRNET SCENE: SCENE "+ str(SCENES[sceneNum].number)+ '\n'+str(SCENES[sceneNum].getMembers()) )
-        print("ON DECK: SCENE " + str(SCENES[sceneNum+1].number)+ '\n'+str(SCENES[sceneNum+1].getMembers()) )
-        print('\n')
-    print("FINAL SCENE: SCENE "+ str(SCENES[-1].number)+ '\n'+str(SCENES[-1].getMembers()) )
+    #display_all()
+    cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.")
+    scenes_index=0
+    while(cmd!='exit'):
+        if(scenes_index==14):
+            print("FINAL SCENE: SCENE "+ str(SCENES[-1].number)+ '\n'+ SCENES[-1].display() )
+            cmd="exit"
+        else:
+            print("CURRNET SCENE: SCENE "+ str(SCENES[scenes_index].number)+ '\n'+ SCENES[scenes_index].display() )
+            print("ON DECK: SCENE " + str(SCENES[scenes_index+1].number)+ '\n'+  SCENES[scenes_index+1].display() )
+            scenes_index+=1
+            cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.")
 
+
+            
         
 

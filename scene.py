@@ -24,7 +24,7 @@ class Scene:
         if(self.members is None):
             return
         for member in self.members:
-            returnStr+= member + '\n'
+            returnStr+= str(member) + '\n'
         return returnStr
 
     def getMembers(self):
