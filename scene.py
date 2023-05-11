@@ -19,7 +19,13 @@ class Scene:
             if dancer not in self.members:
                 self.members.append(dancer)
         
-        
+    def display(self):
+        returnStr = ""
+        if(self.members is None):
+            return
+        for member in self.members:
+            returnStr+= member + '\n'
+        return returnStr
 
     def getMembers(self):
         return self.members

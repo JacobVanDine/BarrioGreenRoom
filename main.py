@@ -35,7 +35,7 @@ def castToActor(arr):
     return arr
     
 def gen_scenes():
-    for scene in range(NUM_SCENES):
+    for scene in range(NUM_SCENES+1):
         if(scene==1): 
             SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'Child #1','Child #2','emerlinda', 'sampaugita', 'benilde', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro' ]), DANCES.get('Traditional Tinikling')))
         elif(scene==2):
@@ -65,13 +65,18 @@ def gen_scenes():
             SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'tito aldo', 'bendito', 'tita baby', 'tito boy', 'andres']), DANCES.get('Alcamfor')))
         elif(scene==14):
             SCENES.append(Scene(scene, castToActor(['lola', 'bendito', 'tita baby', 'tito boy']), DANCES.get('Modern Tinikling')))
-        
+
 if __name__ == "__main__":
     gen_data() 
   
     gen_scenes()
     #print(DANCES)
     #print(CAST)
-    for scene in SCENES:
-        print(scene.number, scene.getMembers())
+    for sceneNum in range(len(SCENES)-1):
+        print("CURRNET SCENE: SCENE "+ str(SCENES[sceneNum].number)+ '\n'+str(SCENES[sceneNum].getMembers()) )
+        print("ON DECK: SCENE " + str(SCENES[sceneNum+1].number)+ '\n'+str(SCENES[sceneNum+1].getMembers()) )
+        print('\n')
+    print("FINAL SCENE: SCENE "+ str(SCENES[-1].number)+ '\n'+str(SCENES[-1].getMembers()) )
+
+        
 
