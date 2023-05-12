@@ -64,7 +64,7 @@ def gen_scenes():
         elif(scene==12):
             SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'benilde','emerlinda', 'bendito', 'agapito', 'tita baby', 'tito boy', 'althea', 'alejandro'])))
         elif(scene==13):
-            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'tito aldo', 'bendito', 'tita baby', 'tito boy', 'andres']), DANCES.get('Alcamfor')))
+            SCENES.append(Scene(scene, castToActor(['hana', 'lola', 'sampaguita', 'tito aldo', 'bendito', 'tita baby', 'tito boy', 'andres', 'Young Lola','Young Lolo']), DANCES.get('Alcamfor')))
         elif(scene==14):
             SCENES.append(Scene(scene, castToActor(['lola', 'bendito', 'tita baby', 'tito boy']), DANCES.get('Modern Tinikling')))
 
@@ -75,7 +75,7 @@ def display_all():
     print("FINAL SCENE: SCENE "+ str(SCENES[-1].number)+ '\n'+ SCENES[-1].display() )
 
 def barrio():
-    cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.")
+    cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.\n")
     scenes_index=0
     while(cmd!='exit'):
         if(scenes_index==14):
@@ -85,15 +85,14 @@ def barrio():
             print("CURRNET SCENE: SCENE "+ str(SCENES[scenes_index].number)+ '\n'+ SCENES[scenes_index].display() )
             print("ON DECK: SCENE " + str(SCENES[scenes_index+1].number)+ '\n'+  SCENES[scenes_index+1].display() )
             scenes_index+=1
-            cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.")
-
+            cmd = input("Green Room Commands: \nEnter key for Next Scene\nType exit to exit the program.\n")
 
 
 if __name__ == "__main__":
     gen_data() 
     gen_scenes()
-    display_all()
-    #barrio()
+    #display_all()
+    barrio()
     
         
 
