@@ -13,17 +13,18 @@ NUM_SCENES=14
 
 def gen_data():
     dance_df = pd.read_excel("./22-23_ALL_PEOPLE_INVOLVED.xlsx", "Dances")
-    dance_df = dance_df.dropna()
+    dance_df = dance_df.fillna("None")
     cast_df = pd.read_excel("./22-23_ALL_PEOPLE_INVOLVED.xlsx", "Cast")
 
-    dancer_arr = dance_df.T.to_numpy()
+    dancer_arr = dance_df.T.values.tolist()
+    
+    dancer_arr = [list(filter(lambda x: x!="None", arr)) for arr in dancer_arr]
     dances_arr = dance_df.columns.to_numpy()
     role_list = cast_df["Role"].tolist()
     actor_list = cast_df["Actor"].tolist()
 
     for elem in range(len(dances_arr)):
         DANCES[dances_arr[elem]] = dancer_arr[elem]
-        print(dancer_arr)
     DANCES['COMMERICIALS'] = []
     
     for elem in range(len(role_list)):
@@ -91,7 +92,7 @@ def barrio():
 if __name__ == "__main__":
     gen_data() 
     gen_scenes()
-    #display_all()
+    display_all()
     #barrio()
     
         
