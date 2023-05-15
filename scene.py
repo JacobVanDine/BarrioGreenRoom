@@ -3,12 +3,13 @@ import numpy as np
 
 class Scene:
 
-    def __init__(self, number, cast=None, dancers=None) -> None:
+    def __init__(self, number, cast=None, dancers=None, dance=None) -> None:
         self.cast = cast
         self.dancers = dancers
         self.members = []
         self.setMembers()
         self.number=number
+        self.dance = dance
 
     def setMembers(self):
         for actor in self.cast:
@@ -21,6 +22,8 @@ class Scene:
         
     def display(self):
         returnStr = ""
+        if(self.dance is not None): 
+            returnStr +=  self.dance+"\n"+'\n'
         if(self.members is None):
             return
         for member in self.members:
